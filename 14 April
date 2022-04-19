@@ -1,0 +1,43 @@
+https://notepad-plus-plus.org/downloads/v8.3.3/
+
+https://www.postman.com/downloads/
+
+java -version
+
+https://www.oracle.com/in/java/technologies/javase/javase8-archive-downloads.html
+
+
+Please download maven using below link
+
+
+https://maven.apache.org/download.cgi
+
+
+mvn -version
+
+
+1) After the download, unzip the folder and copy it to the folder. (Lets say i have copied to c:\program files\apache-maven-3.52.
+
+2) Setting the path of Maven in environment Variables: Search the Environment Variable --> Edit the System Environment variables--> Navigate to Advanced tab --> Environment Variables
+
+i) MAVEN_HOME : Click New --> Variable Name : MAVEN_HOME , Variable Value: C:\Program Files\apache-maven-3.5.2
+
+ii) M2_HOME : Click New --> Variable Name : M2_HOME , Variable Value: C:\Program Files\apache-maven-3.5.2
+
+iii) Edit the 'Path' Environment Variable --> %M2_HOME%\bin
+
+Testing whether Maven is installed: mvn -version
+
+
+//software's that are need to download
+Postman 
+Notepad ++ 
+Java 
+Maven 
+Anypoint platform service account
+Anypoint studio
+git for desktop
+
+https://git-scm.com/downloads
+
+
