@@ -306,3 +306,186 @@ var encrptedText = "TmFtZQ=="
   "encryptExample": "TmFtZQ==",
   "decryptExample": "Name"
 }
+
+
+**mapping**
+
+//payload
+{
+        "ID" : "1",
+        "Name" : "AJ"
+    },
+    {
+        "ID" : "2",
+        "Name" : "Hari"
+    },
+    {
+        "ID" : "3",
+        "Name" : "Neelu"
+    },
+    {
+        "ID" : "4",
+        "Name" : "Lilly"
+    }
+    
+//script
+%dw 2.0
+output application/json
+---
+payload map()->{
+    ID:$.ID,
+    Name:$.Name ++ " " ++ "Capg"
+}
+
+//output 
+[
+  {
+    "ID": "1",
+    "Name": "AJ Capg"
+  },
+  {
+    "ID": "2",
+    "Name": "Hari Capg"
+  },
+  {
+    "ID": "3",
+    "Name": "Neelu Capg"
+  },
+  {
+    "ID": "4",
+    "Name": "Lilly Capg"
+  }
+]
+
+//another way
+
+//payload
+[
+  {
+    "ID": "1",
+    "Name": "AJ Capg"
+  },
+  {
+    "ID": "2",
+    "Name": "Hari Capg"
+  },
+  {
+    "ID": "3",
+    "Name": "Neelu Capg"
+  },
+  {
+    "ID": "4",
+    "Name": "Lilly Capg"
+  }
+]
+
+//script
+
+%dw 2.0
+output application/json
+---
+payload map(key,value)->{
+    ID:key.ID,
+    Name:key.Name ++ " " ++ "Capg"
+}
+
+//output
+
+[
+  {
+    "ID": "1",
+    "Name": "AJ Capg"
+  },
+  {
+    "ID": "2",
+    "Name": "Hari Capg"
+  },
+  {
+    "ID": "3",
+    "Name": "Neelu Capg"
+  },
+  {
+    "ID": "4",
+    "Name": "Lilly Capg"
+  }
+]
+
+
+**mapObject**
+//payload
+
+{
+    "pet" : "cat",
+    "Name": "lappy"
+}
+    
+
+
+//script
+
+%dw 2.0
+output application/json
+---
+payload mapObject ((value, key, index) -> element:{
+    index:index,
+    key:key++"modified",
+    value:value
+} )
+
+
+//output
+{
+  "element": {
+    "index": 0,
+    "key": "petmodified",
+    "value": "cat"
+  },
+  "element": {
+    "index": 1,
+    "key": "Namemodified",
+    "value": "lappy"
+  }
+}
+
+//another way
+//payload
+[
+    {
+    "PET" : "cat",
+    "NAME": "lappy"
+    },
+    {
+        "PET":"dog",
+        "NAME":"Buddy"
+    }
+  
+]
+  
+
+
+//script
+
+
+%dw 2.0
+output application/json
+---
+payload map((item,index)->
+item mapObject((value,key,index)->
+{
+    (lower(key)): upper(value)
+}
+)
+)
+
+//output
+
+[
+  {
+    "pet": "CAT",
+    "name": "LAPPY"
+  },
+  {
+    "pet": "DOG",
+    "name": "BUDDY"
+  }
+]
