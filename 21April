@@ -611,3 +611,31 @@ var encryptedText = "TmFtZQ=="
     "encryptExample": toBase64(plainText),
     "decryptExample": fromBase64("TmFtZQ==")
 }
+
+
+***************Today's Notes in chat**********************
+http://dneonline.com/calculator.asmx?wsdl
+
+Service: Calculator
+Port: CalculatorSoap
+Address: http://dneonline.com/calculator.asmx
+Operation: Add
+
+Use above values if values doesn't get populated automatically
+
+Rest URL - http://reqres.in/api/users?page=2
+
+Soap WSDL
+ 
+https://www.learnwebservices.com/services/hello?WSDL
+
+import * from dw::core::Strings
+
+import 8* from dw::util : values
+
+import dw::Crypto
+
+import toBase64 from dw::core::Binaries
+
+inport fromBase64 from dw::ore::Binaries
+
