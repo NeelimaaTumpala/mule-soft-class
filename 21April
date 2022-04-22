@@ -489,3 +489,125 @@ item mapObject((value,key,index)->
     "name": "BUDDY"
   }
 ]
+
+
+
+
+**********Notes given by M Khan sir****************
+**JSON to XML**
+
+output application/json
+
+**convert String to Integer**
+
+payload.phone_number as Number
+
+**substring from a string**
+
+import * from dw::core::Strings
+substring(payload.phone_number, 1,3) as Number
+
+**How to get even and odd number from an array**
+
+For Odd : filter(payload, isOdd)
+For Even : filter(payload, isEven)
+
+map       -  iterates over an array and returns an array
+mapObject -	 iterates over an object and returns as object
+pluck	  -  iterates over an object and returns an array of keys or values or indices in that object
+flatten   -  used to merge 2 arrays into single array
+
+**example for flatten**
+
+%dw 2.0
+output application/json
+var array1 = ['Mule']
+var array2 = ['Soft']
+var flattenExample = [array1,array2]
+---
+flatten(flattenExample)
+
+**for getting current date and time**
+
+"currentDateTime": now()
+
+**for skipping null values**
+
+%dw 2.0
+output application/json skipNullOn = "everywhere"
+---
+{
+    "currentDateTime": now(),
+    "temperature": "45",
+    "city": null
+}
+
+**for hiding sensitive info**
+
+%dw 2.0
+import * from dw::util::Values
+output application/json 
+var info = {"name": "parth",
+            "password": "1234",
+            "email": "123@gmail.com"}
+---
+(info mask  "password" with "***")
+
+**for not sending a particular field**
+
+%dw 2.0
+import * from dw::util::Values
+output application/json 
+var info = {"name": "parth",
+            "password": "1234",
+            "email": "123@gmail.com"}
+---
+{
+    "updatedInfo": info - "email"
+}
+
+**size of array**
+
+"sizeOf": sizeOf(payload)
+
+**type of **
+
+"typeOf": typeOf(info)
+
+**split by**
+
+%dw 2.0
+import * from dw::util::Values
+output application/json 
+var info = "mule-soft"
+---
+{
+    "splitByExample": info splitBy("-")
+}
+
+**trim**
+
+%dw 2.0
+import * from dw::util::Values
+output application/json 
+var info = " mule-soft "
+---
+{
+    "trimExample": trim(info)
+}
+
+**encryption**
+
+%dw 2.0
+import dw::Crypto
+import toBase64 from dw::core::Binaries
+import fromBase64 from dw::core::Binaries
+
+output application/json 
+var plainText = "Name"
+var encryptedText = "TmFtZQ=="
+---
+{
+    "encryptExample": toBase64(plainText),
+    "decryptExample": fromBase64("TmFtZQ==")
+}
