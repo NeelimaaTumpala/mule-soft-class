@@ -1,0 +1,99 @@
+************calculating new salary with hike*************************
+//payload
+[
+    {
+        "Fname": "so",
+        "Lname": "kai",
+        "salary": 56000,
+        "hike": 12,
+        "married": true
+    },
+    {
+        "Fname": "shin",
+        "Lname": "moon",
+        "salary": 76000,
+        "hike":11,
+        "married": false
+    },
+    {
+        "Fname": "mango",
+        "Lname": "lilly",
+        "salary": 87000,
+        "hike": 10,
+        "married": true
+    }
+
+]
+
+//script
+
+%dw 2.0
+output application/json
+---
+payload map((item, index)->{
+    name:item.Fname++" " ++ item.Lname,
+    company:"capgemini",
+    salary: ((item.salary*item.hike)/100)+item.salary,
+    married:item.married
+})
+
+//output
+
+[
+  {
+    "name": "so kai",
+    "company": "capgemini",
+    "salary": 62720,
+    "married": true
+  },
+  {
+    "name": "shin moon",
+    "company": "capgemini",
+    "salary": 84360,
+    "married": false
+  },
+  {
+    "name": "mango lilly",
+    "company": "capgemini",
+    "salary": 95700,
+    "married": true
+  }
+]
+
+**************using $, $$, $$$ with pluck***********************
+//payload
+{
+    "name":"AJ",
+    "name":"AJ2",
+    "name":"AJ3"
+}
+
+//script
+%dw 2.0
+output application/json
+---
+{
+    value: payload pluck $,
+    keys: payload pluck $$,
+    index: payload pluck $$$
+}
+
+//output
+
+{
+  "value": [
+    "AJ",
+    "AJ2",
+    "AJ3"
+  ],
+  "keys": [
+    "name",
+    "name",
+    "name"
+  ],
+  "index": [
+    0,
+    1,
+    2
+  ]
+}
