@@ -1,0 +1,86 @@
+**********palying in dwlang***********
+url: https://developer.mulesoft.com/learn/dataweave/
+//payload
+[
+    {
+    "message": "Hello world!"
+},
+{
+    "message": "Hello Earth!"
+},
+{
+    "message": "Hello India!"
+},
+{
+    "message": "Hello Universe!"
+}
+ 
+]
+
+//script
+
+%dw 2.0
+output application/json
+---
+payload.message[0]
+
+//output
+"Hello world!"
+
+
+******ex 2********
+//payload 
+same as above
+
+//script
+
+%dw 2.0
+output application/json
+---
+payload.message
+
+//output
+
+[
+  "Hello world!",
+  "Hello Earth!",
+  "Hello India!",
+  "Hello Universe!"
+]
+
+**********ex 3******
+
+//paylaod 
+same as above
+
+
+//script
+
+%dw 2.0
+output application/json
+---
+payload[0].message
+
+//output
+
+"Hello world!"
+
+
+********ex 4*******
+//payload
+
+same as above
+
+//script
+
+%dw 2.0
+output application/json
+---
+payload[0]
+
+
+//output
+
+{
+  "message": "Hello world!"
+}
