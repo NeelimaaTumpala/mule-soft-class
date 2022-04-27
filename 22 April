@@ -1,3 +1,28 @@
+//Today's chat
+
+1) Recursive
+2) Pattern Matching
+3) Change the frequency
+4) Auto Delete
+5) Moving and Renaming
+
+Renaming 
+ 
+attributes.fileName ++ '_processed'
+
+Assignment 1 - Create a mule project that should take two numbers as an input and operation as json, do the operation in 1 transfor message and transform into xml. Show response. Deploy to cloudhub and validate the output.
+    Add logger and print original payload and after operation as well. 
+Assignment 2 - 1. Create one java class Sales. Add a method : getAmount() -> A public method returning String value. If the value of size field is "S" ,it should return  amount 30$, if the size is "M" it should return 50$ else 80$.
+            Invoke  get Amount() method in getAmount flow to know the amount related details. Final output should have amount concatenated with String. 
+ 
+Sample Input: Payload: { "quantity": 1, "size": "M" }
+Sample Output: Total Amount is : 50$.
+ 
+User choice router, correlation id, logger connector.
+
+
+
+
 ************calculating new salary with hike*************************
 //payload
 [
