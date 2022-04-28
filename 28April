@@ -1,0 +1,317 @@
+********dwlang examples***********
+****ex1****
+//payload
+[
+  {
+    "message": "Hello A!"
+  },
+  {
+    "message": "Hello B!"
+  },
+  {
+    "message": "Hello C!"
+  },
+  {
+    "message": "Hello D!"
+  },
+  {
+    "message": "Hello E!"
+  }
+]
+
+//script
+%dw 2.0
+output application/json
+---
+payload[-1 to -2]
+
+//output
+
+[
+  {
+    "message": "Hello E!"
+  },
+  {
+    "message": "Hello D!"
+  }
+]
+
+****ex1****
+//payload
+[
+  {
+    "message": "Hello A!"
+  },
+  {
+    "message": "Hello B!"
+  },
+  {
+    "message": "Hello C!"
+  },
+  {
+    "message": "Hello D!"
+  },
+  {
+    "message": "Hello E!"
+  }
+]
+
+//script
+%dw 2.0
+output application/json
+---
+payload[-1]
+
+//output
+
+{
+  "message": "Hello E!"
+}
+
+****to convert into upper******
+****ex****
+//payload
+[
+  {
+    "message": "Hello A!"
+  },
+  {
+    "message": "Hello B!"
+  },
+  {
+    "message": "Hello C!"
+  },
+  {
+    "message": "Hello D!"
+  },
+  {
+    "message": "Hello E!"
+  }
+]
+
+//script
+%dw 2.0
+output application/json
+---
+upper(payload[0].message)
+
+//output
+
+"HELLO A!"
+
+
+****to convert into lower******
+****ex****
+//payload
+[
+  {
+    "message": "Hello A!"
+  },
+  {
+    "message": "Hello B!"
+  },
+  {
+    "message": "Hello C!"
+  },
+  {
+    "message": "Hello D!"
+  },
+  {
+    "message": "Hello E!"
+  }
+]
+
+//script
+%dw 2.0
+output application/json
+---
+lower(payload[0].message)
+
+//output
+
+"hello a!"
+
+**********concatination of string and converting into lower case*********
+****ex****
+//payload
+[
+  {
+    "message": "Hello A!"
+  },
+  {
+    "message": "Hello B!"
+  },
+  {
+    "message": "Hello C!"
+  },
+  {
+    "message": "Hello D!"
+  },
+  {
+    "message": "Hello E!"
+  }
+]
+
+//script
+%dw 2.0
+output application/json
+---
+lower(payload[0].message ++ " " ++ payload[1].message)
+
+//output
+
+"hello a! hello b!"
+
+
+***********Arthematic operation like addition**********
+******ex******
+******instead of + we can also use -,*,/***********
+*****we can also check using ==,<,<=,>,>=*******
+//payload
+[
+  {
+    "message": "Hello A!"
+  },
+  {
+    "message": 23
+  },
+  {
+    "message": "Hello C!"
+  },
+  {
+    "message": 72
+  },
+  {
+    "message": "Hello E!"
+  }
+]
+
+//script
+
+%dw 2.0
+output application/json
+---
+payload[1].message + payload[3].message
+
+
+//output
+95
+
+******ex*****
+**********typeOf()**********
+//payload
+[
+  {
+    "message": "Hello A!"
+  },
+  {
+    "message": 23
+  },
+  {
+    "message": "Hello C!"
+  },
+  {
+    "message": 72
+  },
+  {
+    "message": "Hello E!"
+  }
+]
+
+
+//script
+%dw 2.0
+output application/json
+---
+typeOf(payload[1].message) ++ " " ++  typeOf(payload[0].message)
+
+//output
+"Number String"
+
+******ex*****
+**********typeOf()**********
+//payload
+[
+  {
+    "message": "Hello A!"
+  },
+  {
+    "message": 23
+  },
+  {
+    "message": "Hello C!"
+  },
+  {
+    "message": 72
+  },
+  {
+    "message": "Hello E!"
+  }
+]
+
+
+//script
+%dw 2.0
+output application/json
+---
+sizeOf(payload[1].message) ++ " " ++  sizeOf(payload[0].message)
+
+//output
+
+"1 8"
+
+
+*******if input is text file not json and and to split**********
+********splitBy***********
+*******ex**********
+//payload
+
+Apple-Juice
+
+//script
+
+%dw 2.0
+output application/json
+---
+payload splitBy("-")
+
+//output
+
+[
+  "Apple",
+  "Juice"
+]
+
+
+******trim()*******
+*********remove extra spaces before and after the input value, input is text file**********
+*******ex*********
+//payload(text)
+       Apple   Juice   
+
+//script
+%dw 2.0
+output application/json
+---
+trim(payload)
+
+//output
+"Apple   Juice"
+
+
+*******if else********
+*****ex******
+//payload(Json)
+{
+       "price" : 100
+}
+
+//script
+
+%dw 2.0
+output application/json
+---
+if(payload.price <=100) "Buy" else "Not Buy"
+
+//output
+"Buy"
