@@ -1,0 +1,111 @@
+*********ex1**********
+*******concatination************
+//payload
+{
+    "FirstName" : "Neelima",
+    "LastName" : "Tumpala",
+    "Age" : 21,
+    "company" : "capgemini"
+}
+
+//script
+%dw 2.0
+output application/json
+---
+{
+    "name" : payload.FirstName ++ " " ++ payload.LastName,
+    "Age" : payload.Age,
+    "company" : payload.company
+}
+
+//output
+
+{
+  "name": "Neelima Tumpala",
+  "Age": 21,
+  "company": "capgemini"
+}
+
+**********ex2***********
+***********map***********
+//payload
+[
+    {
+    "FirstName" : "Neelima",
+    "LastName" : "Tumpala",
+    "Age" : 21,
+    "company" : "capgemini",
+    "salary" : 7000000
+},
+{
+    "FirstName" : "honey",
+    "LastName" : "subash",
+    "Age" : 28,
+    "company" : "capgemini",
+    "salary" : 3500000
+},
+{
+    "FirstName" : "yesh",
+    "LastName" : "kanna",
+    "Age" : 29,
+    "company" : "capgemini",
+    "salary" : 4500000
+},
+{
+    "FirstName" : "gandhi",
+    "LastName" : "indira",
+    "Age" : 26,
+    "company" : "capgemini",
+    "salary" : 6400000
+}
+]
+
+//script
+%dw 2.0
+output application/json
+---
+payload map {
+   "name": $.FirstName ++ " " ++ $.LastName,
+   "Age" : $.Age,
+   "salary" : $.salary
+}
+
+//output
+[
+  {
+    "name": "Neelima Tumpala",
+    "Age": 21,
+    "salary": 7000000
+  },
+  {
+    "name": "honey subash",
+    "Age": 28,
+    "salary": 3500000
+  },
+  {
+    "name": "yesh kanna",
+    "Age": 29,
+    "salary": 4500000
+  },
+  {
+    "name": "gandhi indira",
+    "Age": 26,
+    "salary": 6400000
+  }
+]
+
+*****to check even number*****
+//payload
+{
+    "number" : 24
+}
+
+//script
+%dw 2.0
+output application/json
+---
+if((payload.number mod 2) == 0) "even number"
+else "odd number"
+
+//output
+"even number"
