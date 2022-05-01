@@ -1,3 +1,183 @@
+//Today's chat
+https://docs.mulesoft.com/object-store-connector/1.2/object-store-connector-reference
+
+{
+    "empName" : "RAHUL",
+    "empID" : 56345,
+    "empEmail" : "rahul@xyz.com",
+    "empStatus" : "Active"
+}
+
+
+<?xml version='1.0' encoding='UTF-8'?>
+<empDetails>
+  <empName>RAHUL</empName>
+  <empID>56345</empID>
+  <empEmail>rahul@xyz.com</empEmail>
+  <empStatus>Active</empStatus>
+</empDetails>
+
+
+Input xml
+ 
+<?xml version='1.0' encoding='UTF-8'?>
+<empDetails>
+  <empName>RAHUL</empName>
+  <empID>56345</empID>
+  <empEmail>rahul@xyz.com</empEmail>
+  <empStatus>Active</empStatus>
+  <empStreet> Shastri Nagar</empStreet>
+  <empCity>Delhi</empCity>
+  <empPin>110001</empPin>
+</empDetails>
+
+[27-04-2022 10:44] Arpit (Guest)
+Desired Json {
+
+  "empDetails": {
+
+    "empName": "RAHUL",
+
+    "empID": "56345",
+
+    "empEmail": "rahul@xyz.com",
+
+    "empStatus": "Active",
+
+    "empAdress": {
+
+                    "empStreet": " Shastri Nagar",
+
+                    "empCity": "Delhi",
+
+                    "empPin": "110001"
+
+                }
+
+  }
+
+}
+
+[27-04-2022 11:08] Arpit (Guest)
+dwlang.fun
+
+[27-04-2022 11:09] Arpit (Guest)
+[
+
+    {​​​​​
+
+    "message": "Hello world!"
+
+}​​​​​,
+
+{​​​​​
+
+    "message": "Hello Earth!"
+
+}​​​​​,
+
+{​​​​​
+
+    "message": "Hello India!"
+
+}​​​​​,
+
+{​​​​​
+
+    "message": "Hello Universe!"
+
+}​​​​​ ]
+
+**to sign up bitbucket**
+a. open bitbucket.org
+b. create account
+c. create repository and default branch name will be master
+d. click on clone and copy the command except git clone text i.e. copy only the bitbucket repo url
+
+
+
+**to set credentials using cmd**
+a. git config --global user.name "your_username"
+b. git config --global user.password "your_password"
+
+
+
+**to push the local code to bitbucket**
+a. go to project folder
+b. open cmd
+c. git init
+d. git add --all
+e. git commit -m "commit relevant msg"
+f. git remote add origin (bitbucket repo url)
+g. git push -u origin master
+h. if any issue while pushing we can use git push -u origin master --force
+
+
+
+**to add code and psuh to feature branch**
+a. if develop branch is not created then create develop branch from master branch (bitbucket UI/website)
+b. git pull
+c. git checkout develop
+d. change/add the code the code in anypoint studio
+e. git status
+f. git checkout -b feature/{branchname}
+g. git add .
+h. git commit -m "commit relevant msg"
+i. git push origin feature/{branchname}
+
+
+
+**create pull and merge to develop from feature**
+a. open branches in bitbucket on website
+b. create pull request from feature to develop (check the "delete branch after merge", only feature or bug fix branch should be deleted)
+c. approve the pull request and merge
+
+[
+  {
+    "message": "Hello A!"
+  },
+  {
+    "message": "Hello B!"
+  },
+  {
+    "message": "Hello C!"
+  },
+  {
+    "message": "Hello D!"
+  },
+  {
+    "message": "Hello E!"
+  }
+]
+
+[28-04-2022 12:38] Akshat, Atharva
+muletraining.chw2qgl9jlno.us-east-1.rds.amazonaws.com
+
+[29-04-2022 12:07] M Khan (Guest)
+
+
+Assignment 2
+
+Create a mule project that would read data from db (muletraing) based on the id , retrieve the recored from sfdc
+
+change the name of the same account using transform message and push it to sfdc.
+
+if any error occured use on error propogate.
+
+Push your project to bitbucket under sfdc-db repo
+
+[29-04-2022 12:08] M Khan (Guest)
+select id from testDB
+
+[29-04-2022 12:11] M Khan (Guest)
+select id from testDB where name ='Khan'
+
+
+
+
+
+
+
 **********palying in dwlang***********
 url: https://developer.mulesoft.com/learn/dataweave/
 //payload
