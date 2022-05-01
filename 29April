@@ -109,3 +109,62 @@ else "odd number"
 
 //output
 "even number"
+
+********filter***********
+//payload
+[
+    {
+    "FirstName" : "Neelima",
+    "LastName" : "Tumpala",
+    "Age" : 21,
+    "company" : "capgemini",
+    "salary" : 7000000
+},
+{
+    "FirstName" : "honey",
+    "LastName" : "subash",
+    "Age" : 28,
+    "company" : "capgemini",
+    "salary" : 3100000
+},
+{
+    "FirstName" : "yesh",
+    "LastName" : "kanna",
+    "Age" : 29,
+    "company" : "capgemini",
+    "salary" : 2300000
+},
+{
+    "FirstName" : "gandhi",
+    "LastName" : "indira",
+    "Age" : 26,
+    "company" : "capgemini",
+    "salary" : 6400000
+}
+]
+
+//script
+
+%dw 2.0
+output application/json
+---
+(payload map{
+
+    "name" : $.FirstName ++ " " ++ $.LastName,
+    "age" : $.age,
+    "salary" : $.salary
+}) filter ($.salary > 3200000)
+
+//output
+[
+  {
+    "name": "Neelima Tumpala",
+    "age": null,
+    "salary": 7000000
+  },
+  {
+    "name": "gandhi indira",
+    "age": null,
+    "salary": 6400000
+  }
+]
