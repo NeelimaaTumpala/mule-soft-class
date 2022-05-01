@@ -122,3 +122,118 @@ output application/json
     2
   ]
 }
+
+
+******pluck with join*******
+//payload
+{
+    "name":"AJ",
+    "name1":"AJ2",
+    "name3":
+    {
+        "prefix" : "mr. ",
+        "fname" : "A",
+        "midname" : "B",
+        "lastname" : "C",
+        "suffix" : "junior"
+    }
+}
+
+//script
+
+%dw 2.0
+output application/json
+---
+{
+    name : payload.name,
+    name1 : payload.name1,
+    name3 : payload.name3 pluck $ joinBy ""
+}
+
+//output
+
+{
+  "name": "AJ",
+  "name1": "AJ2",
+  "name3": "mr. ABCjunior"
+}
+
+*********pluck with map*******
+//paylaod
+{
+    "name":"AJ",
+    "name1":"AJ2",
+    "name3":
+    {
+        "prefix" : "mr. ",
+        "fname" : "A",
+        "midname" : "B",
+        "lastname" : "C",
+        "suffix" : "junior"
+    }
+}
+
+//script
+
+%dw 2.0
+output application/json
+---
+{
+    name : payload.name,
+    name1 : payload.name1,
+    name3 : payload.name3 pluck ((value,key,index) -> value)
+}
+
+//output
+
+{
+  "name": "AJ",
+  "name1": "AJ2",
+  "name3": [
+    "mr. ",
+    "A",
+    "B",
+    "C",
+    "junior"
+  ]
+}
+
+
+**********pluck with map with join*********
+//pluck
+{
+    "name":"AJ",
+    "name1":"AJ2",
+    "name3":
+    {
+        "prefix" : "mr. ",
+        "fname" : "A",
+        "midname" : "B",
+        "lastname" : "C",
+        "suffix" : "junior"
+    }
+}
+
+//script
+
+%dw 2.0
+output application/json
+---
+{
+    name : payload.name,
+    name1 : payload.name1,
+    name3 : payload.name3 pluck ((value,key,index) -> value)joinBy  " "
+}
+
+//output
+
+{
+  "name": "AJ",
+  "name1": "AJ2",
+  "name3": "mr.  A B C junior"
+}
+
+
+
+
+
