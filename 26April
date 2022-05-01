@@ -1,0 +1,22 @@
+//today's chat
+http:
+
+  path: "![cEdgBpyYlMyFQnLqAcv+2g==]"
+
+  port: "![51f7dEZwgbs81RxREr6OJw==]"
+  
+ 
+${secure::http.path}
+${secure::http.port}
+
+MyEncryptionKey1
+[26-04-2022 10:05] Arpit (Guest)
+https://secure-properties-api.us-e1.cloudhub.io/
+
+scatter gather.
+https://docs.mulesoft.com/mule-runtime/4.4/scatter-gather-concept
+
+same api in which we have added two subflow.
+we need to read from value of opration from properties
+and then deploy your application
+to cloudhub
