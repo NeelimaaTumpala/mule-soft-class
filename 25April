@@ -1,0 +1,49 @@
+//Todays chat
+https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15
+
+[25-04-2022 09:52] Arpit (Guest)
+Host - muletraining.chw2qgl9jlno.us-east-1.rds.amazonaws.comInstance
+Name: MuleTraining
+Port - 1433
+Username - Training
+Password - Training123
+DBName - BikeStores
+
+[25-04-2022 09:53] Arpit (Guest)
+select * from sales.orders
+
+try configuring Microsoft SQL Server Driver in database config and then test connection
+
+1) Add prop yaml file into srn/main/resources as dev-projectname.yaml and qa-projectame.yaml
+2)Go to global elements and select configuration properties and put ${env}-projectname.yaml
+3)Go to global elements and select global property and put name as env and value as dev or qa
+
+[25-04-2022 12:23] Guha, Adrija
+http:
+listener:
+port: "8082"
+db:
+host: "muletraining.chw2qgl9jlno.us-east-1.rds.amazonaws.com"
+
+[25-04-2022 12:23] Guha, Adrija
+http:
+listener:
+port: "8081"
+db:
+host: "muletraining.chw2qgl9jlno.us-east-1.rds.amazonaws.com"
+
+
+
+No we need to access db.host. Go to global elements and open database config and put ${db.host} in Host
+
+${http.listener.port}
+
+mule-worker-<application-name>.<region>.cloudhub.io:<port>
+adding mule-worker- before the url in postman working for qa part
+
+muletrainig
+
+
+
+
+
