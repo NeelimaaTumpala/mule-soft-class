@@ -1,3 +1,4 @@
+//********designing of API**********
 //RAML
 //In any point paltfoem
 //Design
@@ -131,5 +132,134 @@ title: Ecommerce
           
 
 
+//public the designed one to exachange using publish
+//1.0.0, v1 -> used while pulishing
+//we can add raml file from design centre while creating the project by clicking one '+' symbol while creating the project
+//choose exchange then add your account to it. then after adding search for the raml file that you have created i.e Ecommerce
+//then add and finish
+//now raml file is added to our project
+//in lister path is like /api/*
+//while running in postman in place of * we have to give resouce name that we have given in raml in design centre
+//I have created a project 2may-mule-raml
+//I have created another configure file and taken subflow inside that logger and transform msg is kept
+//In ecommerce flow that we have created in get method in place of transform put reference and refer to subflow then run the code and 
+//don't forget to give query params as we have given in raml file to take input
+//in postman if we check we will get the output :>)
 
+ //scheduler project
+ //scheduler is basi
+ 
+ 
+ 
+ 
+ //imp qns for interview
+ 1.    What MuleSoft API-led connectivity layer is intended to expose part of a backend database without business logic? 
+A.    Experience 
+B.    B. Data 
+C.    C. System 
+D.    D. Process 
+ 
+2    What statement is part of Mulesoft’s description of an application network? 
+A.    Create reusable APIs and assets designed to be consumed by other business units 
+B.    B. Creates and manages availability and fault tolerant services and infrastructure 
+C.    C. Leverages Central IT to deliver complete point-to-point solutions with master data management 
+D.    D. Creates and manages a collection of JMS messaging services and infrastructure 
+ 
+3 Where does a deployed flow designer application run in Anypoint Platform? A. Exchange B. Clouhhub Worker C. API Manager D. Design Center 
+4 What is NOT part of a Mule 4 event? 
+A. Message 
+B. Payload 
+C. InboundProperties 
+D. Attributes 
+5 What is the maximum number of Mule applications that can run in a Cloud Hub Worker? 
+A. At most one 
+B. At least one 
+C. Depends on the vCores 
+D. Depends on the number of CloudHub workers configured 
+6 What HTTP method in a RESTful web service is typically used to replace a resource completely? 
+A. PATCH 
+B. PUT 
+C. POST 
+D. GET 
+7 What is a core characteristic of the Modern API? 
+A. API is designed first using an API specification for rapid feedback 
+B. API is rapidly prototyped following AGILE methodology 
+C. API follows the RESTful architecture 
+8 What is the main purpose of flow designer in Design Center? 
+A. Design API RAML files in a graphical way 
+B. To design and Develop fully functional Mule applications in a hosted development environment 
+C. Define API lifecycle management in a graphical way 
+D. Design and mock Mule application templates that must be implemented using Anypoint Studio 
+9 What MuleSoft product enables publishing, sharing, and searching of APIs? 
+A. API Designer 
+B. API MUnit 
+C. Anypoint Exchange 
+D. API Notebook 
+10 What asset can NOT be created using Anypoint Platform Design Center? 
+A. API Specifications 
+B. Mule Applications 
+C. API Fragments 
+D. API portals
+1c 2a 3b 4c 5b 6c 7a 8a 9c 10d
+ 
+11 What MuleSoft product enables publishing, sharing, and searching of APIs?
+A. Runtime Manager
+B. Exchange
+C. API Notebook
+D. API Designer
+
+12 What MuleSoft API-led connectivity layer is intended to expose part of a backend database without business logic?
+A. Data
+B. System
+C. Process
+D. Experience
+
+13 Where does a deployed flow designer application run in Anypoint Platform?
+A. CloudHub worker
+B. API Manager
+C. Design Center
+D. Exchange
+
+14 A Set Variable component saves the current payload to a variable.
+What is the DataWeave parent expression to access the variable?
+A. #[value]
+B. #[vars]
+C. #[var]
+D. #[values]
+
+ 15 How would you debug Mule applications?
+A. By Deploying apps on production
+B. Checking RAML
+C. Using logger component
+D. Cannot do it
+
+16 What HTTP method in a RESTful web service is typically used to completely replace an existing resource?
+A. GET
+B. PATCH
+C. POST
+D. PUT
+
+17 Why would you use SOAP instead of http?
+A. If the architecture mandates.
+B. It is up to the integration specialist.
+C. Successful/retry logic for reliable messaging functionality.
+D. It is part of agile methodology.
+
+18 Which one of them is NOT a flow in Mule?
+A. sync flow
+B. subflow
+C. async flow
+D. async sub flow
+
+19 How are multiple conditions used in a Choice router to route events?
+A. To route the same event to the matched route of EVERY true condition.
+B. None of these.
+C. To find the FIRST true condition, then distribute the event to the ONE matched route.
+D. To find the FIRST true condition, then route the same event to the matched route and ALL FOLLOWING routes.
+
+ 20 Where are values of query parameters stored in the Mule event by the HTTP Listener?
+A. Payload
+B. Attributes
+C. Inbound Properties
+D. Variables
  
