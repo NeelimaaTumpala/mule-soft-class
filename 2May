@@ -1,0 +1,135 @@
+//RAML
+//In any point paltfoem
+//Design
+//create give name
+//craeting a RAML
+1.Resource : It is unique name we give to out  endpoint
+2.Method : GET,POST,PUT,DELETE,PATCH
+3.Request: Body,QueryParams,URIParama,Headers
+4.Response:what response body and type you should return
+
+Note : For checking in postman you should enable mocking service configuring which on the right up
+
+Note : And also it will check error in the order that we write code
+
+/addTocart:
+  description: This resource will give conformation once the product is added
+  get:
+    queryParameters:
+      productName:
+        type: string
+        minLength: 5
+        maxLength: 10
+    responses:
+      200:
+        body:
+          application/json:
+            {"response" : "Product added to cart successfully!..."}
+
+
+
+/login:
+  post:
+    queryParameters:
+      device:
+        required: true
+    body:
+      application/json:
+        properties:
+          userName:
+            minLength: 5
+            maxLength: 10
+          password:
+            minLength: 5
+            maxLength: 15
+    responses:
+      201:
+        body:
+          application/json:
+            examples:
+              {"response" : "Successfully Logged in"}
+              
+              
+ //we can create a folder and inside that folder we can create a file that file can be imported into our raml code
+ using !include path
+ example : !include example/addToCartExample
+ 
+ ///Example/addToCartExample.raml
+ #%RAML 1.0 NamedExample
+addToCartExample:
+  {"response" : "Product added to cart successfully!..."}
+  
+  ///schemas/loginDataType.raml
+  #%RAML 1.0 DataType
+
+properties:
+          username:
+            minLength: 5
+            maxLength: 10
+          password:
+            minLength: 5
+            maxLength: 15
+            
+ //ecommerce.raml
+ 
+ #%RAML 1.0
+title: Ecommerce
+
+
+/addTocart:
+  description: This resource will give conformation once the product is added
+  get:
+    queryParameters:
+      productName:
+        type: string
+        minLength: 5
+        maxLength: 10
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include Example/addToCartExample.raml
+  post:
+    queryParameters:
+      productName:
+        type: string
+        minLength: 5
+        maxLength: 10
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include Example/addToCartExample.raml
+             
+  delete:
+    queryParameters:
+      productName:
+        type: string
+        minLength: 5
+        maxLength: 10
+    responses:
+      200:
+        body:
+          application/json:
+            example:  !include Example/addToCartExample.raml
+             
+
+/login:
+  post:
+    queryParameters:
+      device:
+        required: true
+    body:
+      application/json:
+        type: !include schemas/loginDataType.raml
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {"result" : "Loggin successfull"}
+          
+
+
+
+ 
