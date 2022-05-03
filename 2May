@@ -147,7 +147,10 @@ title: Ecommerce
 //in postman if we check we will get the output :>)
 
  //scheduler project
- //scheduler is basi
+ //The Scheduler component enables you to trigger a flow when a time-based condition is met
+ 
+ //In afternoon class explained about raml and processing of payload
+ ////expalined about resourceType and Traits
  
  
  
