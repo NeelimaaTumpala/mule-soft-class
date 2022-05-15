@@ -1,0 +1,22 @@
+https://help.mulesoft.com/s/article/How-to-enable-verbose-logging-for-database-module-in-Mule-3-and-Mule-4
+
+account id     name     createddatetime     updatedDateTime
+1            khan    05-05-2022 09:2:23
+1            khans    05-05-2022 09:2:23    05-05-2022 10:02:23
+ 
+
+step 1 - retrieve lastUpdatedDatetime from objectStore and store in a variable e.g. lastUpdatedDatetime if lastUpdatedDatetime is not not null else set now()
+step 2 - select * from Accounts where createddatetime > vars.lastUpdatedDatetime or(isnull(updatedDateTime,'') <> '' and updatedDateTime > vars.lastUpdatedDatetime)
+step 3 - store lastUpdatedDatetime/getdate() in object store
+ 
+platformEvent
+Account object
+ 
+listner -> "flow ref for subflow for logi to be pushed to db"
+ 
+platformEvent -> "flow ref for subflow for logi to be pushed to db"
+ 
+SubFlow implementation in which we have below 
+var corrlation
+transform mesage for receied data from sf
+then DB query for insert
