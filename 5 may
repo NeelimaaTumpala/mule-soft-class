@@ -1,0 +1,9 @@
+http://employee-ag-4may.us-e2.cloudhub.io/api/employeeDetails
+
+#[{queryParams:{"string1":"Rahul", "string2":"Singh"}}]
+
+variables.outboundHeaders ++ vars.correlationid
+ 
+ ++{headerName:"value"}
+ 
+ 
