@@ -1,0 +1,228 @@
+anypoint.platform.client_id
+
+anypoint.platform.client_secret
+
+anypoint.platform.client_id=b64c67d484ed461b85b48cc13360eda1
+env=qa
+anypoint.platform.client_secret=94cDad9dec8c4F0a8475e3185720a4E0
+
+[04-05-2022 12:37] Addanki, Harika
+1. What MuleSoft API-led connectivity layer is intended to expose part of a backend database without business logic? 
+A. Experience 
+B. B. Data 
+C. C. System 
+D. D. Process 
+2 What statement is part of Mulesoft’s description of an application network? 
+A. Create reusable APIs and assets designed to be consumed by other business units 
+B. B. Creates and manages availability and fault tolerant services and infrastructure 
+C. C. Leverages Central IT to deliver complete point-to-point solutions with master data management 
+D. D. Creates and manages a collection of JMS messaging services and infrastructure 
+3 Where does a deployed flow designer application run in Anypoint Platform? A. Exchange B. Clouhhub Worker C. API Manager D. Design Center 
+4 What is NOT part of a Mule 4 event? 
+A. Message 
+B. Payload 
+C. InboundProperties 
+D. Attributes 
+5 What is the maximum number of Mule applications that can run in a Cloud Hub Worker? 
+A. At most one 
+B. At least one 
+C. Depends on the vCores 
+D. Depends on the number of CloudHub workers configured 
+6 What HTTP method in a RESTful web service is typically used to replace a resource completely? 
+A. PATCH 
+B. PUT 
+C. POST 
+D. GET 
+7 What is a core characteristic of the Modern API? 
+A. API is designed first using an API specification for rapid feedback 
+B. API is rapidly prototyped following AGILE methodology 
+C. API follows the RESTful architecture 
+8 What is the main purpose of flow designer in Design Center? 
+A. Design API RAML files in a graphical way 
+B. To design and Develop fully functional Mule applications in a hosted development environment 
+C. Define API lifecycle management in a graphical way 
+D. Design and mock Mule application templates that must be implemented using Anypoint Studio 
+9 What MuleSoft product enables publishing, sharing, and searching of APIs? 
+A. API Designer 
+B. API MUnit 
+C. Anypoint Exchange 
+D. API Notebook 
+10 What asset can NOT be created using Anypoint Platform Design Center? 
+A. API Specifications 
+B. Mule Applications 
+C. API Fragments 
+D. API portals
+1c 2a 3b 4c 5b 6c 7a 8a 9c 10d
+11 What MuleSoft product enables publishing, sharing, and searching of APIs?
+A. Runtime Manager
+B. Exchange
+C. API Notebook
+D. API Designer
+12 What MuleSoft API-led connectivity layer is intended to expose part of a backend database without business logic?
+A. Data
+B. System
+C. Process
+D. Experience
+13 Where does a deployed flow designer application run in Anypoint Platform?
+A. CloudHub worker
+B. API Manager
+C. Design Center
+D. Exchange
+14 A Set Variable component saves the current payload to a variable.
+What is the DataWeave parent expression to access the variable?
+A. #[value]
+B. #[vars]
+C. #[var]
+D. #[values]
+ 15 How would you debug Mule applications?
+A. By Deploying apps on production
+B. Checking RAML
+C. Using logger component
+D. Cannot do it
+16 What HTTP method in a RESTful web service is typically used to completely replace an existing resource?
+A. GET
+B. PATCH
+C. POST
+D. PUT
+17 Why would you use SOAP instead of http?
+A. If the architecture mandates.
+B. It is up to the integration specialist.
+C. Successful/retry logic for reliable messaging functionality.
+D. It is part of agile methodology.
+18 Which one of them is NOT a flow in Mule?
+A. sync flow
+B. subflow
+C. async flow
+D. async sub flow
+19 How are multiple conditions used in a Choice router to route events?
+A. To route the same event to the matched route of EVERY true condition.
+B. None of these.
+C. To find the FIRST true condition, then distribute the event to the ONE matched route.
+D. To find the FIRST true condition, then route the same event to the matched route and ALL FOLLOWING routes.
+ 20 Where are values of query parameters stored in the Mule event by the HTTP Listener?
+A. Payload
+B. Attributes
+C. Inbound Properties
+D. Variables
+
+[04-05-2022 12:54] M Khan (Guest)
+** oAuth 
+
+    - https://dzone.com/articles/mule-oauth-20-provider-in-mule-4
+
+** SP & Function -
+
+    - Function must return value while in SP return value is optional.
+
+    - Function can have only input parameteres as parameteres while SP can have input and output parameters as well.
+
+    - Function can be called in SP but SP cannot be called inside functions ** Flatten -
+
+    - Turns a set of sub array into a single array 
+
+    .. It flattens first level of subarray
+
+    e.g. [[1,2,3],[4,5,[6]],[],[null]] output would be [1,2,3,4,5,[6],null]
+
+** Transport barrier -
+
+    - when mule message goes through the endpoint that makes use of transport (e.g. HTTP,JMS,VM)
+
+    - There are two ways of calling flows in mule 1)Using flow-ref component 2) using endpoint ** Non-blocking strategy -
+
+    - In this model a single thread still handles each incoming request but non-blocking component returns this thread to listner thread pool. Upon obtaining and using new thread , can processing continue    
+
+** API proxy -
+
+    - API proxy is an application that provides a level of protection to an API. We don't have to modify an API to guard the attacks on our service. API proxy also known as 
+
+    'auto genrated proxies'
+
+    - API proxy filters all incoming/outgoing traffice. And it decouples frontend and backend service.
+
+    - API Gateway performs in same way as API proxy but in addition to that it provides additional features
+
+        -- Load balancing
+
+        -- Throttling
+
+        -- Caching
+
+        -- Advanced security
+
+** Auto Discovery -
+
+    - API auto discovery is a mechanism to manage an API from an API manager by pairing the deployed application with API created on platform regardless of how it was deployed.
+
+      Auto discovery will not consume extra cores.
+
+    - API changes made in studio are synchronized using auto discovery with the API registered with API manager.
+
+** ResourceType - 
+
+    - ResourceType is basically a template that is used to define the descriptions, methods, and parameters that can be used by multiple resources without writing the duplicate code or repeating code.
+
+** Trait -
+
+    - Traits is like function and is used to define common attributes for HTTP method (GET, PUT, POST, PATCH, DELETE, etc) such as whether or not they are filterable, searchable, or pageable.
+
+** CLUSTERS & SERVER GROUPS -
+
+    - A cluster is set of upto 8 servers that act as a single deployment target and high availablity processing unit.
+
+    - Both server groups and clusters run applications in multiple distributed nodes. When using server groups, instances of an applications are completely isolated from each other.
+
+    - In a cluster configuration, nodes are aware of one another and share common information.
+
+    - All server groups or clusters must have same Mule Runtime engie version and runtime Manager agent version.
+
+** BATCH PROCESSING && FOR EACH -
+
+    - Foreach is more reliable but it process records iteratively using single thread. Hence parellal processing is not possible. Each records create a single message by default.
+
+      Handling broken records is not possible in foreach while in Batch processing handling broken records are possible.
+
+      Foreach is single threaded while Batch processing is multi threaded.      
+
+      Batch process is designed to process million of records in a very fast and reliable way. By default 16 threads will process the records and its reliable.
+
+      We can get statistics at the end (Number of records, number of failure records etc.) using batch filter.
+
+    - in FOreach all messages get loaded in vCore memory while in Batch processing the message will not get loaded in vCore memory.
+
+** MVN LIFE CYCLE
+
+    - Validate : it validates if project is correct and all necessary information is available.
+
+    - Compile : compile the source code of project.
+
+    - Test : test the source code of project using a suitable unit test framework. This test doesn't require the code to be pacakged.
+
+    - Package : Pacakge the compiled code into a distributable format e.g. JAR .
+
+    - Verify : run the checks on result of integration tests.
+
+    - Install : Install the package into local repository, for use as a dependency in other projects locally.
+
+    - Deploy : Finally deploy to remote repository.
+
+** SLB & DLB
+
+    - CloudHub provides a default shared load balancer that is available in all environments. The shared load balancer provides basic functionality, such as TCP load balancing. Shared load balancers don’t allow you to configure custom SSL certificates or proxy rules.
+
+    - A dedicated load balancer is not shared resource in CloudHub and resides inside the client's VPC, user can configure more than one DLB in VPC. Dedicated load balancers enable us to
+
+        -- Handle load balancing among the different CloudHub workers that run your application.
+
+        -- Define SSL configurations to provide custom certificates and optionally enforce two-way SSL client authentication.
+
+        -- Configure proxy rules that map your applications to custom domains.
+
+** CONTAINERIZATION
+
+    - Containerization is defined as a form of operating system virutalization, through which applications are run in isolated user space called Containers, all using same shared OS
+
+    - Containerization is the process of packaging an application along with its required librairies, frameworks and configuration files together so that it can be run in various environment efficiently.
+
+    - In short Containerization is the encapsulation of an application and its required environment.
+
